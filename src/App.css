@@ -1,38 +1,243 @@
-.App {
+@import url('https://fonts.googleapis.com/css2?family=Kode+Mono:wght@400..700&display=swap');
+
+body {
+  /*background-color: #1f1e1e;*/
+  background-image: url('./1.jpg');
+  background-size: cover; 
+  background-position: center; 
+  position: relative; 
+  color: white;
+  overflow: hidden;
+  overflow-y: auto;
+}
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+h1 {
   text-align: center;
+  margin-top: -30px;
+  margin-left: 50px;
+  margin-bottom: -30px;
+  font-family: 'Kode Mono', monospace;
+  animation: flicker 2s infinite;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.to-do-wrapper {
+  position: relative;
+  background-color: #353434;
+  padding: 2%;
+  width: fit-content;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 3%;
+  max-width: 80vh;
+  overflow-y: auto;
+  box-shadow: 0px 5px 7px rgb(27, 27, 27);
+}
+.to-do-wrapper .top-section {
+  background-color: #4B0082; 
+  padding: 80px; 
+  width: 100%; 
+  box-sizing: border-box; 
+  border-bottom-right-radius: 30%;
+  border-top-left-radius: 30%;
+}
+.rounded-rectangle {
+  width: 300px; 
+  height: 100px;
+  background-color: white; 
+  border-bottom-right-radius: 30%;
+  border-top-left-radius: 30%;
+  margin-top: -60px;
+  margin-left: 130px;
+}
+.container {
+  margin-top: 70px;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.to-do-input {
   display: flex;
-  flex-direction: column;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
+  border-bottom: 1px solid gray;
+  padding-bottom: 25px;
+  margin-bottom: 25px;
+}
+
+.to-do-input-item {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin-right: 25px;
+}
+
+.to-do-input-item label {
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.to-do-input input {
+  padding: 8px;
+  border: none;
+  width: 200px;
+}
+
+.to-do-input-item input:focus {
+  outline: 2px solid rgb(0, 230, 122);
+}
+
+.primaryBtn {
+  background-color: #4B0082;
   color: white;
+  border: none;
+  border-radius: 0px;
+  margin-top: 30px;
+  padding: 8px;
+  width: 90px;
+  cursor: pointer;
+  font-weight: bold;
 }
 
-.App-link {
-  color: #61dafb;
+.primaryBtn:hover {
+  background-color: rgb(4, 196, 106);
+  transform: scale(1.1);
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+.secondaryBtn {
+  background-color: rgb(71, 71, 71);
+  color: white;
+  border: none;
+  border-radius: 0px;
+  margin-top: 25px;
+  padding: 10px;
+  width: fit-content;
+  cursor: pointer;
+}
+
+.active {
+  background-color: #008000;
+  font-weight: bold;
+}
+
+.to-do-list {
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto;
+}
+
+.btn-area {
+  margin-bottom: 20px;
+}
+
+.to-do-list-item {
+  background-color: #414040;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 25px;
+  padding-bottom: 10px;
+  padding-top: 10px;
+  margin-bottom: 10px;
+  box-shadow: 0px 3px 5px #008000;
+  border-top-left-radius: 40%;
+  border-bottom-right-radius: 40%;
+}
+
+.to-do-list-item h3 {
+  font-size: 25px;
+  color: rgb(0, 230, 122);
+  font-weight: bold;
+  margin: 0;
+}
+
+.to-do-list-item p {
+  font-size: 14px;
+  color: rgb(161, 161, 161);
+  margin-top: 8px;
+}
+
+.icon {
+  font-size: 30px;
+  cursor: pointer;
+}
+
+.icon:hover {
+  color: red;
+  transform: scale(1.1); 
+}
+
+.check-icon {
+  font-size: 30px;
+  margin-left: 10px;
+  color: rgb(0, 230, 122);
+  cursor: pointer;
+}
+
+.check-icon:hover {
+  color: rgb(4, 196, 106);
+  transform: scale(1.1); 
+}
+
+.edit__wrapper {
+  background-color: #414040;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+}
+
+.edit__wrapper input,
+.edit__wrapper textarea {
+  border: 1px solid lightgray;
+  padding: 10px;
+  margin: 5px;
+  border-radius: 3px;
+}
+
+.edit__wrapper .primaryBtn {
+  margin-left: auto;
+  margin-right: auto;
+  padding: 10px;
+  font-size: 16px;
+  width: fit-content;
+}
+
+@keyframes neon {
+  0% { text-shadow: 0 0 5px #fff, 0 0 10px #ff00e4, 0 0 20px #ff00e4, 0 0 30px #ff00e4, 0 0 40px #ff00e4, 0 0 50px #ff00e4, 0 0 60px #ff00e4; }
+  50% { text-shadow: 0 0 10px #fff, 0 0 20px #ff00e4, 0 0 30px #ff00e4, 0 0 40px #ff00e4, 0 0 50px #ff00e4, 0 0 60px #ff00e4, 0 0 70px #ff00e4; }
+  100% { text-shadow: 0 0 5px #fff, 0 0 10px #ff00e4, 0 0 20px #ff00e4, 0 0 30px #ff00e4, 0 0 40px #ff00e4, 0 0 50px #ff00e4, 0 0 60px #ff00e4; }
+}
+@keyframes flicker {
+  0%, 100% { color: gray }
+  50% {  color: white;  }
+}
+
+
+@media screen and (max-width: 600px) {
+  .to-do-wrapper {
+    max-width: 90vw; 
   }
-  to {
-    transform: rotate(360deg);
+  .to-do-input {
+    flex-direction: column; 
+  }
+  .to-do-input-item {
+    margin-right: 0; 
+    margin-bottom: 15px; 
+  }
+}
+
+@media screen and (max-width: 400px) {
+  .to-do-wrapper {
+    max-width: 95vw; 
+  }
+}
+
+@media screen and (max-height: 600px) {
+  .to-do-list {
+    max-height: 50vh; 
   }
 }
